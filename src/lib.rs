@@ -3,7 +3,7 @@ pub mod datatypes {
 
     impl fmt::Display for Coordinates {
         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-            write!(f, "{}:{}:{}", self.x, self.y, self.z)
+            write!(f, "[{},{},{}]", self.x, self.y, self.z)
         }
     }
 
@@ -18,8 +18,8 @@ pub mod datatypes {
 pub mod calculations {
     use datatypes::Coordinates;
 
-    // Example function...
     pub fn add(a: i32, b: i32) -> i32 {
+        // Example function...
         println!("Calculating...");
         return a + b;
     }
