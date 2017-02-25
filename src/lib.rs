@@ -1,6 +1,8 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
+pub mod calculations {
+    pub fn add(a: i32, b: i32) -> i32 {
+        println!("Calculating...");
+        return a + b;
     }
 }
+
+mod tests;
