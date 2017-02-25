@@ -1,0 +1,6 @@
+[package]
+name = "spacesim"
+version = "0.1.0"
+authors = ["Petr Sahula <mail@spetex.cz>"]
+
+[dependencies]
