@@ -18,10 +18,6 @@ pub mod datatypes {
 pub mod calculations {
     use datatypes::Coordinates;
 
-    pub fn add(a: i32, b: i32) -> i32 {
-        // Example function...
-        println!("Calculating...");
-        return a + b;
     }
 
     pub fn get_distance(point1: Coordinates, point2: Coordinates) -> f32 {

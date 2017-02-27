@@ -8,7 +8,6 @@ fn main() {
     let there = datatypes::Coordinates{ x:-78, y:45, z:12 };
 
     println!("Starting SpaceSim...");
-    println!("Add {}", calculations::add(5,5));
     println!("Spot 1: {}", here);
     println!("Spot 2: {}", there);
     println!("Distance: {}", calculations::get_distance(here, there));
