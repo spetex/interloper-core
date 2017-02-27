@@ -13,6 +13,25 @@ pub mod datatypes {
         pub y: i32,
         pub z: i32,
     }
+
+    impl fmt::Display for Orbit {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            write!(f, "{} {} {} {} {} {}", self.i, self.o, self.e, self.w, self.v, self.a)
+        }
+    }
+    pub struct Orbit {
+        // Standard datatype for specification of orbit - Keplerian Elements
+
+        // Shape and Size
+        pub e: f32, // Eccentricity
+        pub a: f32, // Semimajor axis
+        // Orientation of orbital plane
+        pub i: f32, // Inclination
+        pub o: f32, // Longitude of the ascending node
+        // Other
+        pub w: f32, // Argument of periapsis
+        pub v: f32, // True anomaly
+    }
 }
 
 pub mod calculations {
