@@ -52,5 +52,3 @@ pub mod calculations {
         return  sum_float.sqrt();
     }
 }
-
-mod tests;
