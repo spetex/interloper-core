@@ -1,6 +1,6 @@
-extern crate spacesim;
-use spacesim::datatypes;
-use spacesim::calculations;
+extern crate spacecalcs;
+use spacecalcs::datatypes;
+use spacecalcs::calculations;
 
 
 fn main() {
