@@ -1,17 +1,33 @@
+sudo: false
 language: rust
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+    - libelf-dev
+    - libdw-dev
+    - binutils-dev
 rust:
-  - stable
-  - beta
-  - nightly
+- stable
+- 1.0.0
+- beta
+- nightly
 matrix:
   allow_failures:
-    - rust: nightly
+  - rust: nightly
+before_script:
+- |
+  pip install 'travis-cargo<0.2' --user &&
+  export PATH=$HOME/.local/bin:$PATH
 script:
-  - cargo build --verbose
-  - cargo test --verbose
-after_success: |
-    sudo apt-get install libcurl4-openssl-dev libelf-dev libdw-dev &&
-      wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
-        tar xzf master.tar.gz && mkdir kcov-master/build && cd kcov-master/build && cmake .. && make &&
-          sudo make install && cd ../.. &&
-            kcov --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo target/kcov target/debug/spacesim-*
+- |
+  travis-cargo build &&
+  travis-cargo test
+after_success:
+- |
+  travis-cargo --only stable doc-upload
+  travis-cargo coveralls
+env:
+  global:
+  - TRAVIS_CARGO_NIGHTLY_FEATURE=nightly
+  - secure: WrL0TXixY2H3oB0jSR1aWHH6SnlBKf1OZDb/ALg3z7tZq8oZ2s1rdVV2F3C9CAfCMuePeyTCz4Ga5MWTpSAZtaw7dIL6y91GMzux2/LHEbBEU6mebBFnzu2ZujJHKuCJZv4Xp3wp/iqm98p4QCwUgPFVmiu631TQRTGne/iKkXwOM0Y+rfcDl9rr5aOZbdVs77q/BPc5Gs9gFeI61d8ckcvqgcM7qZiugnzc+FVslh1n8j6N7eoy2N64kCS+ksc6CNOWhbeeHSVPRPJn1ybC1K604ulS0+uKXIcq7F9uI6KUoo9Li8wddP7z9ULVj1t7LlDgSB/BQne8VDW+tsd5AaNzipusU/utgvhifI62MsyZV/r5K8JTaQbgUU+R9tWJY0a6uxG3exqvUpSGq48kgH4n+iAKrvwGUg0SofK2eviKUGjuSra4/UgBAq/8MQOmxHiJYhaMZTVRZhUVVZ7ZwlFZ08AMrIo7bh5enjR2PqNDIoXWjQwVpcTqXBkiS4t7l3mNcmuNVCY7jyH+s+JoP4IUkWNJrUrNhM+l1RvGmdUn8B1S4Kx6DcqNKreYEHhu6J8D701HyLu1L1xhNSJ26rzhAubCiK7uz6NqjU71x0wcXaePgohHnQQVuAT2ZkBpbicNgPFNdY/BsjbGKzyK8gdcEXNxIN02mmRObdSvr9U=
