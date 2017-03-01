@@ -1,3 +1,5 @@
+#![doc(html_root_url = "https://spetex.github.io/spacesim/")]
+
 pub mod datatypes {
     use std::fmt;
 
