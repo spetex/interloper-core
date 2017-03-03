@@ -4,11 +4,7 @@ version = "0.1.0"
 authors = ["Petr Sahula <mail@spetex.cz>"]
 
 [lib]
-name = "spacecalcs"
+name = "spacesim"
 path = "src/lib.rs"
-
-[[bin]]
-name = "runspacesim"
-path = "src/main.rs"
 
 [dependencies]
