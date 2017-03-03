@@ -12,7 +12,7 @@ pub mod datatypes {
     }
 
     impl Coordinates {
-        pub fn default() -> Coordinates {
+        pub fn new_default() -> Coordinates {
             Coordinates { x: 0, y: 0, z: 0 }
         }
         pub fn new(x: i32, y: i32, z: i32) -> Coordinates {

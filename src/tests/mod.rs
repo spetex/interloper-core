@@ -20,7 +20,7 @@ fn it_measures_distance() {
 #[test]
 fn coordinates_creates_itself_with_default() {
     use datatypes;
-    let point_in_space = datatypes::Coordinates::default();
+    let point_in_space = datatypes::Coordinates::new_default();
     assert!(point_in_space.x == 0);
     assert!(point_in_space.y == 0);
     assert!(point_in_space.z == 0);
