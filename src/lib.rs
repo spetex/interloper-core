@@ -20,7 +20,14 @@ pub mod datatypes {
 
     impl fmt::Display for Orbit {
         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-            write!(f, "{} {} {} {} {} {}", self.i, self.o, self.e, self.w, self.v, self.a)
+            write!(f,
+                   "{} {} {} {} {} {}",
+                   self.i,
+                   self.o,
+                   self.e,
+                   self.w,
+                   self.v,
+                   self.a)
         }
     }
 
@@ -53,7 +60,7 @@ pub mod calculations {
         let squared_z: i32 = get_squared_delta(point1.z, point2.z);
         let sum_int: i32 = squared_x + squared_y + squared_z;
         let sum_float: f32 = sum_int as f32;
-        return  sum_float.sqrt();
+        sum_float.sqrt()
     }
 }
 
