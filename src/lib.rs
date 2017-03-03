@@ -11,6 +11,15 @@ pub mod datatypes {
         }
     }
 
+    impl Coordinates {
+        pub fn default() -> Coordinates {
+            Coordinates { x: 0, y: 0, z: 0 }
+        }
+        pub fn new(x: i32, y: i32, z: i32) -> Coordinates {
+            Coordinates { x: x, y: y, z: z }
+        }
+    }
+
     /// Standard datatype for saving position of object in space
     pub struct Coordinates {
         pub x: i32,
