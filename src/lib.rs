@@ -1,4 +1,6 @@
 #![doc(html_root_url = "https://spetex.github.io/spacesim/")]
+//! # Spacesim Library
+//! Hobby library for sumulating celestial mechanics
 
 pub mod datatypes {
     use std::fmt;
@@ -9,8 +11,8 @@ pub mod datatypes {
         }
     }
 
+    /// Standard datatype for saving position of object in space
     pub struct Coordinates {
-        // Standard datatype for saving position of object in space
         pub x: i32,
         pub y: i32,
         pub z: i32,
@@ -21,9 +23,9 @@ pub mod datatypes {
             write!(f, "{} {} {} {} {} {}", self.i, self.o, self.e, self.w, self.v, self.a)
         }
     }
-    pub struct Orbit {
-        // Standard datatype for specification of orbit - Keplerian Elements
 
+    /// Standard datatype for specification of orbit - Keplerian Elements
+    pub struct Orbit {
         // Shape and Size
         pub e: f32, // Eccentricity
         pub a: f32, // Semimajor axis
@@ -39,13 +41,13 @@ pub mod datatypes {
 pub mod calculations {
     use datatypes::Coordinates;
 
+    /// Math helper
     pub fn get_squared_delta(a: i32, b: i32) -> i32 {
-        // Math helper
         return (b - a) * (b - a);
     }
 
+    /// Calculates distance between 2 points in the universe based on coordinates
     pub fn get_distance(point1: Coordinates, point2: Coordinates) -> f32 {
-        // Calculates distance between 2 points in the universe based on coordinates
         let squared_x: i32 = get_squared_delta(point1.x, point2.x);
         let squared_y: i32 = get_squared_delta(point1.y, point2.y);
         let squared_z: i32 = get_squared_delta(point1.z, point2.z);
