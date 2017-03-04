@@ -34,3 +34,21 @@ fn coordinates_creates_itself_on_specific_place() {
     assert!(point_in_space.y == 12);
     assert!(point_in_space.z == -65);
 }
+
+#[test]
+fn universe_exists() {
+    use objects;
+    let first_universe = objects::Universe::new(0);
+    assert!(first_universe.id == 0);
+}
+
+#[test]
+fn universe_spawns_celestial() {
+    use objects;
+    let mut first_universe = objects::Universe::new(0);
+    let celestial_one = first_universe.spawn();
+    assert!(celestial_one.id == 1);
+    assert!(celestial_one.location.x == 0);
+    assert!(celestial_one.location.y == 0);
+    assert!(celestial_one.location.z == 0);
+}
