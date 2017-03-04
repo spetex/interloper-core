@@ -46,9 +46,33 @@ fn universe_exists() {
 fn universe_spawns_celestial() {
     use objects;
     let mut first_universe = objects::Universe::new(0);
-    let celestial_one = first_universe.spawn();
-    assert!(celestial_one.id == 1);
-    assert!(celestial_one.location.x == 0);
-    assert!(celestial_one.location.y == 0);
-    assert!(celestial_one.location.z == 0);
+    first_universe.spawn();
+    let celestial_one = first_universe.get_celestial(0);
+    let celestial_two = first_universe.get_celestial(1);
+    assert!(celestial_one.id == 0);
+    assert!(celestial_two.id == 1);
+    assert!(first_universe.get_celestial_count() == 2)
+}
+
+#[test]
+fn celestial_can_move_in_universe() {
+    use objects;
+    use datatypes;
+    let mut first_universe = objects::Universe::new(0);
+    first_universe.set_position(0, datatypes::Coordinates::new(76, 43, 444));
+    let celestial_one = first_universe.get_celestial(0);
+    assert!(celestial_one.location.x == 76);
+}
+
+#[test]
+fn test_big_bang() {
+    use objects;
+    let mut first_universe = objects::Universe::new(0);
+    loop {
+        first_universe.spawn();
+        if first_universe.get_celestial_count() == 10000000 {
+            break;
+        }
+    }
+    assert!(first_universe.get_celestial_count() == 10000000)
 }
