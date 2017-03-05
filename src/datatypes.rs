@@ -14,9 +14,11 @@ impl fmt::Display for Coordinates {
 }
 
 impl Coordinates {
+    /// Creates new set of coordinates in the origin
     pub fn new_default() -> Coordinates {
         Coordinates { x: 0, y: 0, z: 0 }
     }
+    /// Creates new set of coordinates on specific place in universe
     pub fn new(x: i32, y: i32, z: i32) -> Coordinates {
         Coordinates { x: x, y: y, z: z }
     }
