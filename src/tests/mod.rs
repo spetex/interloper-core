@@ -39,13 +39,14 @@ fn coordinates_creates_itself_on_specific_place() {
 fn universe_exists() {
     use objects;
     let first_universe = objects::Universe::new(0);
-    assert!(first_universe.id == 0);
+    assert!(first_universe.get_id() == 0);
 }
 
 #[test]
 fn universe_spawns_celestial() {
     use objects;
     let mut first_universe = objects::Universe::new(0);
+    first_universe.spawn();
     first_universe.spawn();
     let celestial_one = first_universe.get_celestial(0);
     let celestial_two = first_universe.get_celestial(1);
@@ -59,9 +60,12 @@ fn celestial_can_move_in_universe() {
     use objects;
     use datatypes;
     let mut first_universe = objects::Universe::new(0);
+    first_universe.spawn();
     first_universe.set_position(0, datatypes::Coordinates::new(76, 43, 444));
     let celestial_one = first_universe.get_celestial(0);
     assert!(celestial_one.location.x == 76);
+    assert!(celestial_one.location.y == 43);
+    assert!(celestial_one.location.z == 444);
 }
 
 #[test]
