@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Celestial","Celestial is a generic object for everything that can reside in the space."],["Universe","The Universe - Every interaction takes place in the relation to the universe."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["get_distance","Calculates distance between 2 points in the universe based on coordinates"]]});

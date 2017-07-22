@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Coordinates","Standard datatype for saving position of object in space"],["Orbit","Standard datatype for specification of orbit - Keplerian Elements"]]});
