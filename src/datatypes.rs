@@ -23,31 +23,3 @@ impl Coordinates {
         Coordinates { x: x, y: y, z: z }
     }
 }
-
-
-
-/// Standard datatype for specification of orbit - Keplerian Elements
-pub struct Orbit {
-    // Shape and Size
-    pub e: f32, // Eccentricity
-    pub a: f32, // Semimajor axis
-    // Orientation of orbital plane
-    pub i: f32, // Inclination
-    pub o: f32, // Longitude of the ascending node
-    // Other
-    pub w: f32, // Argument of periapsis
-    pub v: f32, // True anomaly
-}
-
-impl fmt::Display for Orbit {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f,
-               "{} {} {} {} {} {}",
-               self.i,
-               self.o,
-               self.e,
-               self.w,
-               self.v,
-               self.a)
-    }
-}
