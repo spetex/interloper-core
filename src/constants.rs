@@ -1,0 +1,1 @@
+pub const GRAVITATIONAL_CONSTANT: f64 = 6.674e-11;
