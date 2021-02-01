@@ -29,24 +29,27 @@ impl Universe {
         return self.celestials.into_iter().find(|item| item.id == id);
     }
 
-    pub fn get_influential_celestials(self, celestial: &Celestial) -> Vec<Celestial> {
+    pub fn get_influential_celestials(&self, celestial: &Celestial) -> Vec<Celestial> {
         self.celestials
             .into_iter()
             .filter_map(|it| {
-                if it.id != celestial.id { Some(it) } else { None }
+                if it.id != celestial.id {
+                    Some(it)
+                } else {
+                    None
+                }
             })
             .map(|it| it)
             .collect()
     }
 
-    pub fn next_state(self) -> Universe {
+    pub fn next_state(&self) -> Universe {
         return Universe::new(
-            self.id,
+            self.id.clone(),
             self.celestials
                 .iter()
-                .map(|&it| {
-                    let influentials = self.get_influential_celestials(&it);
-                    it.next_state(influentials)
+                .map(|it| {
+                    it.next_state(&self)
                 })
                 .collect()
             )
